@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: bootspring-hello-world
+message: Hello from default profile
+

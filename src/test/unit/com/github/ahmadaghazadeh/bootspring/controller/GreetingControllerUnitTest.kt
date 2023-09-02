@@ -11,10 +11,8 @@ import org.springframework.test.web.reactive.server.WebTestClient
 
 @WebMvcTest(controllers = [GreetingsController::class])
 class GreetingControllerUnitTest
-{
+    : BaseTest(){
 
-    @Autowired
-    lateinit var webTestClient : WebTestClient
 
     @MockkBean
     lateinit var greetingServiceMock : GreetingService
@@ -30,14 +28,11 @@ class GreetingControllerUnitTest
             greetingServiceMock.retrieveGreeting(any())
         } returns expectation
 
-        val result=webTestClient.get()
-            .uri("/v1/greetings/{name}",name)
-            .exchange()
-            .expectStatus().is2xxSuccessful
-            .expectBody(String::class.java)
-            .returnResult()
+        val result = executeGet("/v1/greetings/{name}",name)
 
         Assertions.assertEquals(expectation,result.responseBody)
 
     }
+
+
 }

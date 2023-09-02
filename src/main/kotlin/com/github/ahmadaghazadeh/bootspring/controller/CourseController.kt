@@ -1,4 +1,4 @@
-package com.github.ahmadaghazadeh.bootspring
+package com.github.ahmadaghazadeh.bootspring.controller
 
 import com.github.ahmadaghazadeh.bootspring.dto.CourseDTO
 import com.github.ahmadaghazadeh.bootspring.service.CourseService

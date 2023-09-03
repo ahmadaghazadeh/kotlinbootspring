@@ -11,7 +11,10 @@ class CourseController(val courseService: CourseService) {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun addCourse(@RequestBody courseDTO: CourseDTO){
+    fun addCourse(@RequestBody courseDTO: CourseDTO): CourseDTO{
         return courseService.addCourse(courseDTO)
     }
+
+    @GetMapping
+    fun retrieveAllCourses(): List<CourseDTO> =courseService.retrieveAllCourses()
 }

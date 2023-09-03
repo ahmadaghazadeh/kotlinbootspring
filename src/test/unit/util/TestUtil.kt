@@ -1,5 +1,6 @@
 package util
 
+import com.github.ahmadaghazadeh.bootspring.dto.CourseDTO
 import com.github.ahmadaghazadeh.bootspring.entity.Course
 
 fun courseEntityList() = listOf(
@@ -15,10 +16,12 @@ fun courseEntityList() = listOf(
         )
 )
 
-inline fun<reified T> List<T>.isEqual(second: List<T>): Boolean {
-
-    if (this.size != second.size) {
-        return false
-    }
-    return this.toTypedArray() contentEquals second.toTypedArray()
-}
+fun courseDTO(
+    id: Int? = null,
+    name: String = "Build RestFul APis using Spring Boot and Kotlin",
+    category: String = "Development",
+) = CourseDTO(
+    id,
+    name,
+    category,
+)
